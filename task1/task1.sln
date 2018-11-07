@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{356C9D2A-3A7B-40CB-9ADD-14B507B12402}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4C3964EA-1D1D-4336-B153-99712686A44D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{356C9D2A-3A7B-40CB-9ADD-14B507B12402}.Debug|x86.Build.0 = Debug|Any CPU
 		{356C9D2A-3A7B-40CB-9ADD-14B507B12402}.Release|x86.ActiveCfg = Release|Any CPU
 		{356C9D2A-3A7B-40CB-9ADD-14B507B12402}.Release|x86.Build.0 = Release|Any CPU
+		{4C3964EA-1D1D-4336-B153-99712686A44D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C3964EA-1D1D-4336-B153-99712686A44D}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C3964EA-1D1D-4336-B153-99712686A44D}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C3964EA-1D1D-4336-B153-99712686A44D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
