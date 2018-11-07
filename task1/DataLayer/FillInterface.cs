@@ -4,7 +4,7 @@ namespace DataLayer
 {
     public interface FillInterface
     {
-        bool addBooks(List<Book> books);
-        bool addClients(List<Client> clients);
+        void addBooks(List<Book> books);
+        void addClients(List<Client> clients);
     }
 }
