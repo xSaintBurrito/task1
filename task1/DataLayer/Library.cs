@@ -8,6 +8,7 @@ namespace DataLayer
         private List<Client> clients;
         private List<Rent> rents;
         private List<Incident> incidents;
+        private List<Book> books;
         public Library(){
             clients = new List<Client>();
             rents = new List<Rent>();
@@ -17,14 +18,14 @@ namespace DataLayer
         {
             bool valid_id = true;
             int id = book._id;
-            for (int i = 0; i < Book.Count; i++)
+            for (int i = 0; i < books.Count; i++)
             {
                 if (clients[i]._id == id)
                     valid_id = false;
             }
             if (valid_id == true)
             {
-                clients.Add(book);
+                books.Add(book);
                 return valid_id;
             }
             return valid_id;
