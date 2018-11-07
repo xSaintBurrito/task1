@@ -7,7 +7,7 @@ namespace DataLayer
         public String _name { get; set; }
         public String _surname { get; set; }
         public String _adress { get; set; }
-        public Client(String name,String surname,String adress)
+        public Client(int _id, String name,String surname,String adress)
         {
             _name = name;
             _surname = surname;

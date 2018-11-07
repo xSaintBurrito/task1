@@ -4,20 +4,25 @@ namespace DataLayer
 {
     public class FillLibrary : FillInterface
     {
-        public bool addBooks(List<Book> books, Library library)
+
+        int generate;
+        public FillLibrary(int howMany){
+            generate = howMany;
+        }
+        public bool addBooks(List<Book> books)
         {
             bool success = true;
-            for (int i = 0; i < books.Count;i++){
-                if( !library.addBook(books[i])) success = false;
+            for (int i = 0; i < this.generate;i++){
+                books.Add(new Book(i, "author" + i, "title" + i, DateTime.Now));
             }
             return success;
         }
-        public bool addClients(List<Client> clients, Library library)
+        public bool addClients(List<Client> clients)
         {
             bool success = true;
-            for (int i = 0; i < clients.Count; i++)
+            for (int i = 0; i < this.generate; i++)
             {
-                if (!library.addClient(clients[i])) success = false;
+                clients.Add(new Client(i, " name" + i, " surname" + i, " adress" + i));
             }
             return success;
         }
