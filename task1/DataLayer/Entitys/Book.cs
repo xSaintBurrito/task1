@@ -3,12 +3,12 @@ namespace DataLayer
 {
     public class Book
     {
-        public Date _publishedDate { get; set; }
+        public DateTime _publishedDate { get; set; }
         public bool _isTaken { get; set; }
         public String _authorName { get; set; }
         public String _title { get; set; }
         public int _id { get; set; }
-        public Book(double id, String authorname, String title, Date publishDate)
+        public Book(int id, String authorname, String title, DateTime publishDate)
         {
             _id = id;
             _authorName = authorname;
