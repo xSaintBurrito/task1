@@ -36,6 +36,8 @@
     <Compile Include="Entitys\Client.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Entitys\Incident.cs" />
+    <Compile Include="FillLibrary.cs" />
+    <Compile Include="FillInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entitys\" />

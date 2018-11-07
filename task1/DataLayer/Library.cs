@@ -13,6 +13,23 @@ namespace DataLayer
             rents = new List<Rent>();
             incidents = new List<Incident>();
         }
+        public bool addBook(Book book)
+        {
+            bool valid_id = true;
+            int id = book._id;
+            for (int i = 0; i < Book.Count; i++)
+            {
+                if (clients[i]._id == id)
+                    valid_id = false;
+            }
+            if (valid_id == true)
+            {
+                clients.Add(book);
+                return valid_id;
+            }
+            return valid_id;
+        }
+
         public bool addClient(Client client){
             bool valid_id = true;
             int id = client._id;
