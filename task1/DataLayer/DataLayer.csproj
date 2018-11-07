@@ -30,8 +30,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entitys\Book.cs" />
+    <Compile Include="Entitys\Date.cs" />
+    <Compile Include="Entitys\Rent.cs" />
+    <Compile Include="Entitys\Client.cs" />
+    <Compile Include="Library.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entitys\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
