@@ -9,8 +9,11 @@ namespace DataLayer
 
             LibraryAfter(mess);
         }
+        public String mess { get; set; }
+
 
         protected virtual void LibraryAfter(String mess){
+            this.mess = mess;
             if(OnLibraryAfter != null)
                 OnLibraryAfter(mess);
         }

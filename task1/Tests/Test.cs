@@ -18,7 +18,7 @@ namespace Tests
             Client tomek = new Client(0,"tomek","elo","warszawa");
             Book tytul = new Book(4, "elo", "title4", DateTime.Now);
             Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
-            //Assert.AreEqual(true, userPanel.giveBackBook(tytul,tomek));
+            Assert.AreEqual(true, userPanel.giveBackBook(tytul,tomek));
 
 
         }

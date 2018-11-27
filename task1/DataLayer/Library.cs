@@ -18,10 +18,10 @@ namespace DataLayer
             foreach( KeyValuePair<String,Book> _book in books){
                 if(Equals(_book.Value._title,book._title) && _book.Value._isTaken == false){
                     _book.Value._isTaken = true;
-                    Console.WriteLine("wypozyczenei");
                     Event renting = new Event();
                     renting.OnLibraryAfter += (text) => Console.WriteLine("you rent " + text);
                     renting.addEvent(_book.Value._id.ToString());
+                    pastEvent.Add(renting);
                     return true;
                 }
             }
@@ -34,7 +34,10 @@ namespace DataLayer
                 if (_book.Value._isTaken == true && _book.Value._id == book._id)
                 {
                     _book.Value._isTaken = false;
-                    Console.WriteLine("oddanie");
+                    Event giveBack = new Event();
+                    giveBack.OnLibraryAfter += (text) => Console.WriteLine("you give back " + text);
+                    giveBack.addEvent(_book.Value._id.ToString());
+                    pastEvent.Add(giveBack);
                     return true;
                 }
             }
@@ -58,13 +61,14 @@ namespace DataLayer
             fill.addBooks(ref books);
         }
 
-
+        private List<Event> pastEvent;
         private List<Client> clients;
         private List<Rent> rents;
         private List<Incident> incidents;
         private List<KeyValuePair<string, Book>> books;
         public Library()
         {
+            pastEvent = new List<Event>();
             clients = new List<Client>();
             rents = new List<Rent>();
             incidents = new List<Incident>();
