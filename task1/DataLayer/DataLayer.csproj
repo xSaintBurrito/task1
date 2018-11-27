@@ -39,9 +39,11 @@
     <Compile Include="FillLibrary.cs" />
     <Compile Include="FillInterface.cs" />
     <Compile Include="Properties\ILibrary.cs" />
+    <Compile Include="Nowy folder\Event.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entitys\" />
+    <Folder Include="Nowy folder\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

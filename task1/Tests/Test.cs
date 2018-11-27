@@ -13,11 +13,13 @@ namespace Tests
             FillInterface fill = new FillLibrary(30);
             ILibrary library = new Library(); 
             library.fillBooks(fill);
-            library.showbooks();
+            //library.showbooks();
             UserPanel userPanel = new UserPanel(library);
             Client tomek = new Client(0,"tomek","elo","warszawa");
-            Book tytul = new Book(0, "elo", "title2", DateTime.Now);
+            Book tytul = new Book(4, "elo", "title4", DateTime.Now);
             Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
+            //Assert.AreEqual(true, userPanel.giveBackBook(tytul,tomek));
+
 
         }
     }

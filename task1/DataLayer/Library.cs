@@ -19,6 +19,9 @@ namespace DataLayer
                 if(Equals(_book.Value._title,book._title) && _book.Value._isTaken == false){
                     _book.Value._isTaken = true;
                     Console.WriteLine("wypozyczenei");
+                    Event renting = new Event();
+                    renting.OnLibraryAfter += (text) => Console.WriteLine("you rent " + text);
+                    renting.addEvent(_book.Value._id.ToString());
                     return true;
                 }
             }
