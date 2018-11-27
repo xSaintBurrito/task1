@@ -10,10 +10,15 @@ namespace Tests
         [Test()]
         public void TestCase()
         {
-            UserPanel userPanel = new UserPanel();
-            Book book = new Book(2, "elo elo", "twoja stara", DateTime.Today);
-            Client client = new Client("jan", "pawel", "ul.elo");
-            Assert.AreEqual(false, userPanel.rentBook(book, client));
+            FillInterface fill = new FillLibrary(30);
+            ILibrary library = new Library(); 
+            library.fillBooks(fill);
+            library.showbooks();
+            UserPanel userPanel = new UserPanel(library);
+            Client tomek = new Client(0,"tomek","elo","warszawa");
+            Book tytul = new Book(0, "elo", "title2", DateTime.Now);
+            Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
+
         }
     }
 }

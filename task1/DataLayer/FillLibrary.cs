@@ -4,18 +4,17 @@ namespace DataLayer
 {
     public class FillLibrary : FillInterface
     {
-
-        int generate;
+        private int generate;
         public FillLibrary(int howMany){
-            generate = howMany;
+            this.generate = howMany;
         }
-        public void addBooks(List<Book> books)
+        public void addBooks(ref List<KeyValuePair<string, Book>> books)
         {
-            for (int i = 0; i < this.generate;i++){
-                books.Add(new Book(i, "author" + i, "title" + i, DateTime.Now));
+            for (int i = 0; i < this.generate; i++){
+                books.Add(new KeyValuePair<string, Book>("title"+i,new Book(i,"author"+i, "title" + i,DateTime.Now)));   
             }
         }
-        public void addClients(List<Client> clients)
+        public void addClients(ref List<Client> clients)
         {
             for (int i = 0; i < this.generate; i++)
             {

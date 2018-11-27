@@ -4,7 +4,7 @@ namespace DataLayer
 {
     public interface FillInterface
     {
-        void addBooks(List<Book> books);
-        void addClients(List<Client> clients);
+        void addBooks(ref List<KeyValuePair<string, Book>> books);
+        void addClients(ref List<Client> clients);
     }
 }

@@ -4,15 +4,19 @@ namespace LogicLayer
 {
     public class UserPanel
     {
-        Library library;
-        public UserPanel(){
-            library = new Library();
+        ILibrary library;
+        public UserPanel(ILibrary library){
+            this.library = library;
         }
-        public bool rentBook(Book book,Client client){
-            return library.rentBook(client, book);
+        public Boolean rentaBook(Book book,Client client){
+            return library.rentBook(book,client);
+        }
+        public Boolean giveBackBook(Book book, Client client)
+        {
+            return library.giveBackBook(book, client);
         }
 
-        
+
 
 
 

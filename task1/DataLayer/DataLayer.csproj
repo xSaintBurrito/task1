@@ -38,6 +38,7 @@
     <Compile Include="Entitys\Incident.cs" />
     <Compile Include="FillLibrary.cs" />
     <Compile Include="FillInterface.cs" />
+    <Compile Include="Properties\ILibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entitys\" />

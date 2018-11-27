@@ -4,14 +4,14 @@ namespace LogicLayer
 {
     public class WorkerPanel
     {
-        private Library library;
-        public WorkerPanel()
+        private ILibrary library;
+        public WorkerPanel(ILibrary library)
         {
-            library = new Library();
+            this.library = library;
         }
 
-        public bool addClient(Client client){
-            return library.addClient(client);
+        public bool addBook(Book book){
+            return library.addBook(book);
         }
     }
 }

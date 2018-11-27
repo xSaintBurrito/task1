@@ -3,73 +3,91 @@ using System.Collections.Generic;
 using DataLayer;
 namespace DataLayer
 {
-    public class Library
+    public class Library : ILibrary
     {
+        void ILibrary.showbooks(){
+            foreach (KeyValuePair<String, Book> _book in books)
+            {
+
+                Console.WriteLine("title -> " + _book.Key + " author id " + _book.Value._authorName);
+            }
+        }
+        bool ILibrary.rentBook(Book book, Client client)
+        {
+
+            foreach( KeyValuePair<String,Book> _book in books){
+                if(Equals(_book.Value._title,book._title) && _book.Value._isTaken == false){
+                    _book.Value._isTaken = true;
+                    Console.WriteLine("wypozyczenei");
+                    return true;
+                }
+            }
+            return false;
+        }
+        bool ILibrary.giveBackBook(Book book, Client client)
+        {
+            foreach (KeyValuePair<String, Book> _book in books)
+            {
+                if (_book.Value._isTaken == true && _book.Value._id == book._id)
+                {
+                    _book.Value._isTaken = false;
+                    Console.WriteLine("oddanie");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool ILibrary.addBook(Book book)
+        {
+            foreach (KeyValuePair<String, Book> _book in books)
+            {
+                if (_book.Value._id == book._id)
+                {
+                    Console.WriteLine("wrong id");
+                    return false;
+                }
+            }
+            books.Add(new KeyValuePair<string, Book>(book._title, book));
+            return true;
+        }
+        void ILibrary.fillBooks(FillInterface fill){
+            fill.addBooks(ref books);
+        }
+
+
         private List<Client> clients;
         private List<Rent> rents;
         private List<Incident> incidents;
-        private List<Book> books;
-        public Library(){
+        private List<KeyValuePair<string, Book>> books;
+        public Library()
+        {
             clients = new List<Client>();
             rents = new List<Rent>();
             incidents = new List<Incident>();
+            books = new List<KeyValuePair<string, Book>>();
         }
-        public bool addBook(Book book)
+        
+
+        public bool addClient(Client client)
         {
             bool valid_id = true;
-            int id = book._id;
-            for (int i = 0; i < books.Count; i++)
+            int id = client._id;
+            for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i]._id == id)
                     valid_id = false;
             }
             if (valid_id == true)
             {
-                books.Add(book);
-                return valid_id;
-            }
-            return valid_id;
-        }
-
-        public bool addClient(Client client){
-            bool valid_id = true;
-            int id = client._id;
-            for (int i = 0; i < clients.Count;i++){
-                if (clients[i]._id == id)
-                    valid_id = false;
-            }
-            if(valid_id == true){
                 clients.Add(client);
                 return valid_id;
             }
             return valid_id;
         }
-        public bool rentBook(Client client,Book book){
-            if (book._isTaken == false){
-                book._isTaken = true;
-                Rent rent = new Rent(client, book);
-                incidents.Add(new Incident("rent a book " + book._title + " by " + client._name + " " + client._surname));
-                rents.Add(rent);
-            }
-            return false;
-        }
 
-        public bool returnBook(Client client,Book book){
-            bool valid_operation = false;
-            Rent temp = null;
-            for (int i = 0; i < rents.Count; i++){
-                if(book == rents[i]._book && client == rents[i]._client)
-                {
-                    temp = rents[i];
-                    valid_operation = true;
-                }
-            }
-            if (temp != null)
-            {
-                incidents.Add(new Incident("return a book " + book._title + " by " + client._name + " " + client._surname));
-                rents.Remove(temp);
-            }
-            return valid_operation;
-        }
+
+
     }
+
 }
