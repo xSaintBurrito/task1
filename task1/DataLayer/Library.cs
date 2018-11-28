@@ -80,34 +80,47 @@ namespace DataLayer
         }
         bool ILibrary.rentBook(Book book, Client client)
         {
-
-            foreach( KeyValuePair<String,Book> _book in books){
-                if(Equals(_book.Value._title,book._title) && _book.Value._isTaken == false){
-                    _book.Value._isTaken = true;
-                    Event renting = new Event();
-                    renting.OnLibraryAfter += (text) => Console.WriteLine("you rent " + text);
-                    renting.addEvent(_book.Value._id.ToString());
-                    pastEvent.Add(renting);
-                    return true;
+            if (clients.Contains(client) && client.number_of_books < 3)
+            {
+                foreach (KeyValuePair<String, Book> _book in books)
+                {
+                    if (Equals(_book.Value._title, book._title) && _book.Value._isTaken == false)
+                    {
+                        _book.Value._isTaken = true;
+                        Event renting = new Event();
+                        renting.OnLibraryAfter += (text) => Console.WriteLine("you rent " + text);
+                        renting.addEvent(_book.Value._id.ToString());
+                        pastEvent.Add(renting);
+                        client.number_of_books++;
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            else{
+                return false;
+            }
         }
         bool ILibrary.giveBackBook(Book book, Client client)
         {
-            foreach (KeyValuePair<String, Book> _book in books)
+            if (clients.Contains(client))
             {
-                if (_book.Value._isTaken == true && _book.Value._id == book._id)
+                foreach (KeyValuePair<String, Book> _book in books)
                 {
-                    _book.Value._isTaken = false;
-                    Event giveBack = new Event();
-                    giveBack.OnLibraryAfter += (text) => Console.WriteLine("you give back " + text);
-                    giveBack.addEvent(_book.Value._id.ToString());
-                    pastEvent.Add(giveBack);
-                    return true;
+                    if (_book.Value._isTaken == true && _book.Value._id == book._id)
+                    {
+                        _book.Value._isTaken = false;
+                        Event giveBack = new Event();
+                        giveBack.OnLibraryAfter += (text) => Console.WriteLine("you give back " + text);
+                        giveBack.addEvent(_book.Value._id.ToString());
+                        pastEvent.Add(giveBack);
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            else
+                return false;
         }
 
         bool ILibrary.addBook(Book book)

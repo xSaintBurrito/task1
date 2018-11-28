@@ -15,10 +15,5 @@ namespace LogicLayer
         {
             return library.giveBackBook(book, client);
         }
-
-
-
-
-
-    }
+     }
 }
