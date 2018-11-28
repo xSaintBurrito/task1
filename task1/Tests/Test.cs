@@ -31,7 +31,7 @@ namespace Tests
             library.fillBooks(fill);
             WorkerPanel workerPanel = new WorkerPanel(library);
             Book LOTR = new Book(31, "J.R.R", "LOTR", DateTime.Now);
-            Book starwars = new Book(32, "Miekka fryta", "Star wars", DateTime.Now);
+            Book starwars = new Book(32, "J.L.", "Star wars", DateTime.Now);
             Assert.AreEqual(true,workerPanel.addBook(LOTR));
             Assert.AreEqual(false, workerPanel.deleteBook(starwars));
             Assert.AreEqual(true, workerPanel.deleteBook(LOTR));
@@ -49,9 +49,9 @@ namespace Tests
             UserPanel userPanel = new UserPanel(library);
             Client tomek = new Client(0, "tomek", "elo", "warszawa");
             Book LOTR = new Book(31, "J.R.R", "LOTR", DateTime.Now);
-            Book starwars = new Book(32, "Miekka fryta", "Star wars", DateTime.Now);
+            Book starwars = new Book(32, "J.L.", "Star wars", DateTime.Now);
             Book LOTR2 = new Book(33, "J.R.R2", "LOTR2", DateTime.Now);
-            Book starwars2 = new Book(34, "Miekka fryta2", "Star wars2", DateTime.Now);
+            Book starwars2 = new Book(34, "J.K.", "Star wars2", DateTime.Now);
             WorkerPanel workerPanel = new WorkerPanel(library);
             workerPanel.addClient(tomek);
             workerPanel.addBook(LOTR);

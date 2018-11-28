@@ -3,7 +3,7 @@ namespace DataLayer
 {
     public class Event
     {
-        public delegate void LibraryAfterEvent(String elo);
+        public delegate void LibraryAfterEvent(String LAevent);
         public event LibraryAfterEvent OnLibraryAfter;
         public void addEvent(String mess){
             LibraryAfter(mess);
