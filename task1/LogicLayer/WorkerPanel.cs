@@ -26,7 +26,7 @@ namespace LogicLayer
         }
         public void historyEvents()
         {
-
+            library.showHistoryEvents();
         }
         public bool addClient(Client client)
         {

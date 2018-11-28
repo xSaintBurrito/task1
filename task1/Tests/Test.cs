@@ -20,7 +20,6 @@ namespace Tests
             Book tytul = new Book(4, "elo", "title4", DateTime.Now);
             Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
             Assert.AreEqual(true,workerPanel.addClient(tomek));
-
         }
     }
 }
