@@ -154,7 +154,7 @@ namespace DataLayer
         }
         
 
-        public bool addClient(Client client)
+       /* public bool addClient(Client client)
         {
             bool valid_id = true;
             int id = client._id;
@@ -170,7 +170,14 @@ namespace DataLayer
             }
             return valid_id;
         }
+        */
 
+        public bool addClient(Client client)
+        {
+            if (clients.Exists(c => c._id == client._id)) return false;
+            clients.Add(client);
+            return true;
+        }
 
 
     }
