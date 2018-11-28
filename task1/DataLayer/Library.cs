@@ -114,6 +114,7 @@ namespace DataLayer
                         giveBack.OnLibraryAfter += (text) => Console.WriteLine("you give back " + text);
                         giveBack.addEvent(_book.Value._id.ToString());
                         pastEvent.Add(giveBack);
+                        client.number_of_books--;
                         return true;
                     }
                 }
