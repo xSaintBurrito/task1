@@ -13,5 +13,9 @@ namespace LogicLayer
         public bool addBook(Book book){
             return library.addBook(book);
         }
+        public bool deleteBook(Book book)
+        {
+            return library.eraseBook(book);
+        }
     }
 }

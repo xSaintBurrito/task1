@@ -14,11 +14,15 @@ namespace Tests
             ILibrary library = new Library(); 
             library.fillBooks(fill);
             //library.showbooks();
-            UserPanel userPanel = new UserPanel(library);
-            Client tomek = new Client(0,"tomek","elo","warszawa");
+            //UserPanel userPanel = new UserPanel(library);
+            WorkerPanel workerPanel = new WorkerPanel(library);
+            //Client tomek = new Client(0,"tomek","elo","warszawa");
             Book tytul = new Book(4, "elo", "title4", DateTime.Now);
-            Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
-            Assert.AreEqual(true, userPanel.giveBackBook(tytul,tomek));
+            //Assert.AreEqual(true,userPanel.rentaBook(tytul,tomek));
+            Assert.AreEqual(true,workerPanel.deleteBook(tytul));
+            library.showbooks();
+            Assert.AreEqual(true, workerPanel.addBook(tytul));
+            library.showbooks();
 
 
         }

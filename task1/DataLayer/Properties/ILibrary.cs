@@ -8,5 +8,7 @@ namespace DataLayer
         bool addBook(Book book);
         void fillBooks(FillInterface fill);
         void showbooks();
+        bool eraseBook(Book book);
+
     }
 }

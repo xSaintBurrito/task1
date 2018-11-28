@@ -6,7 +6,6 @@ namespace DataLayer
         public delegate void LibraryAfterEvent(String elo);
         public event LibraryAfterEvent OnLibraryAfter;
         public void addEvent(String mess){
-
             LibraryAfter(mess);
         }
         public String mess { get; set; }

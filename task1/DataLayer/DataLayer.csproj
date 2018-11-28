@@ -35,15 +35,14 @@
     <Compile Include="Entitys\Rent.cs" />
     <Compile Include="Entitys\Client.cs" />
     <Compile Include="Library.cs" />
-    <Compile Include="Entitys\Incident.cs" />
     <Compile Include="FillLibrary.cs" />
     <Compile Include="FillInterface.cs" />
     <Compile Include="Properties\ILibrary.cs" />
-    <Compile Include="Nowy folder\Event.cs" />
+    <Compile Include="Event\Event.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entitys\" />
-    <Folder Include="Nowy folder\" />
+    <Folder Include="Event\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

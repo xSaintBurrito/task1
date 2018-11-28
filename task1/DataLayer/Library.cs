@@ -5,6 +5,26 @@ namespace DataLayer
 {
     public class Library : ILibrary
     {
+        bool ILibrary.eraseBook(Book book){
+            foreach (KeyValuePair<String, Book> _book in books)
+            {
+                if (_book.Value._id == book._id)
+                {
+                    if(books.Remove(_book))
+                    {
+                        Event renting = new Event();
+                        renting.OnLibraryAfter += (text) => Console.WriteLine("You delete " + text);
+                        renting.addEvent(_book.Value._id.ToString());
+                        pastEvent.Add(renting);
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
         void ILibrary.showbooks(){
             foreach (KeyValuePair<String, Book> _book in books)
             {
@@ -64,14 +84,12 @@ namespace DataLayer
         private List<Event> pastEvent;
         private List<Client> clients;
         private List<Rent> rents;
-        private List<Incident> incidents;
         private List<KeyValuePair<string, Book>> books;
         public Library()
         {
             pastEvent = new List<Event>();
             clients = new List<Client>();
             rents = new List<Rent>();
-            incidents = new List<Incident>();
             books = new List<KeyValuePair<string, Book>>();
         }
         
