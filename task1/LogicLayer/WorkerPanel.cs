@@ -9,7 +9,6 @@ namespace LogicLayer
         {
             this.library = library;
         }
-
         public bool addBook(Book book){
             return library.addBook(book);
         }
@@ -17,5 +16,26 @@ namespace LogicLayer
         {
             return library.eraseBook(book);
         }
+        public void showCurrentStateBooks()
+        {
+            library.showbooks();
+        }
+        public void showCurretnStateClients()
+        {
+            library.showclients();
+        }
+        public void historyEvents()
+        {
+
+        }
+        public bool addClient(Client client)
+        {
+            return library.addClient(client);
+        }
+        public bool deleteClient(Client client)
+        {
+            return library.deleteClient(client);
+        }
+
     }
 }

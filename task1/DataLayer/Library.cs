@@ -5,6 +5,53 @@ namespace DataLayer
 {
     public class Library : ILibrary
     {
+        void ILibrary.showHistoryEvents(){
+            foreach(Event _event in pastEvent){
+                Console.WriteLine(_event.mess);
+            }
+        }
+        bool ILibrary.addClient(Client client){
+            if (!this.checkClientExist(client))
+            {
+                clients.Add(client);
+                Event addClientEvent = new Event();
+                addClientEvent.OnLibraryAfter += (text) => Console.WriteLine("you add client " + text);
+                addClientEvent.addEvent(client._id.ToString() + " " + client._name + " " + client._surname);
+                pastEvent.Add(addClientEvent);
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
+        }
+        bool ILibrary.deleteClient(Client client){
+            if(clients.Remove(client)){
+                Event deleteClient = new Event();
+                deleteClient.OnLibraryAfter += (text) => Console.WriteLine("you delete client " + text);
+                deleteClient.addEvent(client._id.ToString() + " " + client._name + " " + client._surname);
+                pastEvent.Add(deleteClient);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        bool checkClientExist(Client new_client){
+            foreach (Client client in clients)
+            {
+                if(client._id == new_client._id){
+                    return true;
+                }
+            }
+            return false;
+        }
+        void ILibrary.showclients(){
+            foreach(Client client in clients){
+                Console.WriteLine("id " + client._id + " name " + client._name + " " + client._surname + " " + client._adress);
+            }
+        }
         bool ILibrary.eraseBook(Book book){
             foreach (KeyValuePair<String, Book> _book in books)
             {
@@ -28,7 +75,6 @@ namespace DataLayer
         void ILibrary.showbooks(){
             foreach (KeyValuePair<String, Book> _book in books)
             {
-
                 Console.WriteLine("title -> " + _book.Key + " author id " + _book.Value._authorName);
             }
         }
